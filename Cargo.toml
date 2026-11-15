@@ -4,8 +4,9 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-# TLS goes through the OS (schannel / Secure Transport / OpenSSL): no bundled root list
-tungstenite = { version = "=0.30.0", features = ["native-tls"] }
+serde_json = "=1.0.151"
+# TLS goes through the OS (schannel / Secure Transport) or a bundled OpenSSL on Linux
+tungstenite = { version = "=0.30.0", features = ["native-tls-vendored"] }
 
 [profile.release]
 strip = "symbols"
